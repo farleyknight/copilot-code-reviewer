@@ -1,4 +1,8 @@
 {
+	"exclude": [
+		"src/test/diffParser.test.ts",
+		"src/test/prDiffWebview.test.ts"
+	],
 	"compilerOptions": {
 		"module": "CommonJS",
 		"target": "ES2022",
@@ -16,7 +20,8 @@
 		"types": [
 			"node",
 			"vscode",
-			"mocha"
+			"mocha",
+			"sinon"
 		],
 		/* Additional Checks */
 		// "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */

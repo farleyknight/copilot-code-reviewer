@@ -1,5 +1,6 @@
 {
   "name": "copilot-code-reviewer",
+
   "displayName": "Copilot Code Reviewer",
   "description": "A VS Code extension to empower Copilot with code review capabilities.",
   "version": "0.0.1",
@@ -23,10 +24,22 @@
     "github",
     "developer tools"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:copilot-code-reviewer.helloWorld",
+    "onCommand:copilot-code-reviewer.detectRootUrl",
+    "onCommand:copilot-code-reviewer.listPRs"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
+      {
+        "command": "copilot-code-reviewer.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "copilot-code-reviewer.listPRs",
+        "title": "List Open Pull Requests"
+      },
       {
         "command": "copilot-code-reviewer.startReview",
         "title": "Copilot: Start Code Review"
@@ -39,17 +52,21 @@
     "watch": "tsc -watch -p ./",
     "pretest": "rm -rf out/* && npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "xvfb-run --auto-servernum --server-args=\"-screen 0 1280x1024x24\" vscode-test"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/sinon": "^17.0.4",
     "@types/vscode": "^1.99.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
+    "chai": "^5.2.0",
     "eslint": "^9.25.1",
+    "sinon": "^20.0.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
